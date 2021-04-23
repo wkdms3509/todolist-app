@@ -6,17 +6,26 @@
 
 body {
   background: rgb(114, 235, 191);
+  background: -moz-linear-gradient(
+    151deg,
+    rgba(114, 235, 191, 1) 32%,
+    rgba(63, 142, 235, 1) 77%
+  );
+  background: -webkit-linear-gradient(
+    151deg,
+    rgba(114, 235, 191, 1) 32%,
+    rgba(63, 142, 235, 1) 77%
+  );
   background: linear-gradient(
-      151deg,
-      rgba(114, 235, 191, 1) 20%,
-      rgba(92, 216, 231, 1) 47%,
-      rgba(217, 75, 222, 1) 88%
-    )
-    no-repeat cover/100;
+    151deg,
+    rgba(114, 235, 191, 1) 32%,
+    rgba(63, 142, 235, 1) 77%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#72ebbf",endColorstr="#3f8eeb",GradientType=1);
 }
 
 .todo-app {
-  background-color: lightgoldenrodyellow;
+  background-color: #161a2b;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -34,6 +43,7 @@ h1 {
   margin-top: 30px;
   margin: 30px auto 20px;
   font-size: 32px;
+  color: #fff;
 }
 
 .complete {
@@ -48,20 +58,25 @@ h1 {
 .todo-input {
   width: 300px;
   padding: 14px 32px 14px 16px;
-  border-radius: 12px;
-  border: 2px solid black;
+  border-radius: 4px 0 0 4px;
+  border: 2px solid #5d0cff;
   outline: none;
   background: transparent;
+  color: #fff;
 }
 
 .todo-input::placeholder {
   color: #999;
 }
 
+.todo-input.edit {
+  border: 2px solid #149fff;
+}
+
 .todo-btn {
-  padding: 15px;
+  padding: 16px;
   border: none;
-  border-radius: 12px;
+  border-radius: 0 4px 4px 0;
   outline: none;
   cursor: pointer;
   background: linear-gradient(
@@ -71,4 +86,76 @@ h1 {
   );
   color: #fff;
   text-transform: capitalize;
+}
+
+.todo-btn .edit {
+  background: linear-gradient(
+    90deg,
+    rgba(20, 159, 255, 1) 0%,
+    rgba(17, 122, 255, 1) 100%
+  );
+  padding: 16px 22px;
+}
+
+.todo-container {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.todo-row {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px auto;
+  padding: 16px;
+  user-select: none;
+  color: #fff;
+  border-radius: 5px;
+  background: rgb(231, 151, 66);
+  background: -moz-linear-gradient(
+    151deg,
+    rgba(231, 151, 66, 1) 19%,
+    rgba(92, 37, 232, 1) 77%
+  );
+  background: -webkit-linear-gradient(
+    151deg,
+    rgba(231, 151, 66, 1) 19%,
+    rgba(92, 37, 232, 1) 77%
+  );
+  background: linear-gradient(
+    151deg,
+    rgba(231, 151, 66, 1) 19%,
+    rgba(92, 37, 232, 1) 77%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e79742",endColorstr="#5c25e8",GradientType=1);
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.delete-icon {
+  margin-right: 7px;
+  color: #fff;
+  transition: transform 100ms ease-in;
+}
+
+.delete-icon:hover {
+  transform: scale(1.2);
+  color: tomato;
+}
+
+.edit-icon {
+  color: #fff;
+  transition: transform 100ms ease-in;
+}
+
+.edit-icon:hover {
+  transform: scale(1.2);
+  color: forestgreen;
 }
